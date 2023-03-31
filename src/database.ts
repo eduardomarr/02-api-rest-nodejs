@@ -1,11 +1,7 @@
-import { knex as setupKnex, Knex as knexPros } from 'knex'
+import { Knex, knex as setupKnex } from 'knex'
 import { env } from './env'
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL not found')
-}
-
-export const config: knexPros.Config = {
+export const config: Knex.Config = {
   client: 'sqlite',
   connection: {
     filename: env.DATABASE_URL,
